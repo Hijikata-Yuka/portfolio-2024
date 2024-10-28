@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+            email:
+              blank: "メールアドレスを入力してください"
+              invalid: "メールアドレスの形式が正しくありません"
+  errors:
+    messages:
+      blank: "入力してください"
+      invalid: "形式が正しくありません"
+      too_short: "短すぎます"
+      too_long: "長すぎます"

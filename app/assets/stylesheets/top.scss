@@ -1,0 +1,60 @@
+/*-------------------------------------------
+Text
+-------------------------------------------*/
+#target .site-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+  }
+#target p{
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+  }
+#target {
+    background-color: #ffffff;
+    margin-bottom: 60px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 80px;
+    box-shadow: 3px 4px 5px #575757;
+  }
+
+
+  /*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+  #mainvisual {
+    margin-bottom: 50px;
+  }
+  /*
+  メインビジュアルを画面の高さに合わせる
+  headerの高さが80pxあるので、100vhから80px分だけマイナスする
+  */
+  #mainvisual img {
+    width: 100%;
+    height: calc(100vh - 80px);
+    object-fit: cover;
+  }
+ 
+  /* about ================================ */
+  .about-main {
+    padding: 180px 8% 0;
+    color: white;
+  }
+ 
+  .about-main h2 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+ 
+  .about-main p {
+    font-weight: 200;
+    font-size: 20px;
+  }
+ 
+  .about-img {
+    width: 84%;
+  }

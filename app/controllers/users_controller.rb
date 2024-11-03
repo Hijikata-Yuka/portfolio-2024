@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  
   before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  # before_actionにensure_correct_userメソッドを指定してください
   before_action :ensure_correct_user, {only: [:edit, :update]}
+  
   def index
     @users = User.all
   end
@@ -20,11 +21,9 @@ class UsersController < ApplicationController
       name: params[:name],
       email: params[:email],
       image_name: "default_user.jpg",
-      # params[:password]をnewメソッドの引数に追加してください
       password: params[:password]
     )
     if @user.save
-      # 登録されたユーザーのidを変数sessionに代入してください
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/users/#{@user.id}")
@@ -78,7 +77,8 @@ class UsersController < ApplicationController
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
   end
-
+  
+  # ensure_correct_userを定義してください
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"

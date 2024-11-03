@@ -1,14 +1,13 @@
 class PostsController < ApplicationController
+  # before_actionにauthenticate_userメソッドを指定してください
   before_action :authenticate_user
   
   def index
     @posts = Post.all.order(created_at: :desc)
-
   end
   
   def show
     @post = Post.find_by(id: params[:id])
-    @user = @post.user
   end
   
   def new
@@ -36,7 +35,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit") 
+      render("posts/edit")
     end
   end
   

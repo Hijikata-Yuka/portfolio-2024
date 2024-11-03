@@ -1,4 +1,4 @@
-#render
+#render専用
 max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
 threads min_threads_count, max_threads_count
@@ -10,19 +10,10 @@ workers ENV.fetch("WEB_CONCURRENCY") { 4 }
 plugin :tmp_restart
 
 
-#localhost
-# config/puma.rb
-# Workersはコメントアウト（または設定しない）します
-# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-
-# threadsの最小と最大を1に設定
+#localhost専用
 # threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 # threads threads_count, threads_count
-
-# # PreloadアプリはWindowsでサポートされていないため、無効化します
 # preload_app!
-
-# # サーバーバインドの設定
 # port ENV.fetch("PORT") { 3000 }
 
 

@@ -2,9 +2,10 @@
 * {
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 html {
-  font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
+  font-family: 'Noto Sans JP', 'Arial', sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
 }
@@ -37,8 +38,8 @@ form input[type="submit"] {
 
 /* 共通レイアウト ================================ */
 body {
-  color: #2d3133;
-  background-color: #ffbfeb;
+  color: #4a4a4a;
+  background-color: #faf3e0;
   margin: 0;
   min-height: 1vh;
 }
@@ -81,11 +82,11 @@ header {
   line-height: 64px;
 }
 
-.header-logo a{
-  color: rgb(255, 255, 255);
+.header-logo a {
+  font-family: 'Quicksand', sans-serif;
+  color: rgb(104, 80, 7);
   font-size: 30px;
   font-weight: 600;
-  text-shadow: 1px 2px 3px #000000;
 }
 
 .header-menus {
@@ -103,10 +104,10 @@ header {
 
 .header-menus a {
   float: left;
+  font-family: 'Poppins', sans-serif;
   font-size: 17px;
-  color: #fffdfd;
+  color: #924f07;
   font-weight: 600;
-  text-shadow: 1px 2px 3px #000000;
 }
 
 .header-menus .fa {
@@ -136,7 +137,7 @@ header {
   font-weight: 300;
   margin: 60px 0 20px;
   font-size: 48px;
-  color: #bcc8d4;
+  color: #6b4f2e;
 }
 
 .form-body {
@@ -165,7 +166,7 @@ header {
 }
 
 .form input[type="submit"] {
-  background-color: #3ecdc6;
+  background-color: #ff6600;
   color: white;
   cursor: pointer;
   font-weight: 300;
@@ -195,3 +196,15 @@ header {
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }
+
+/* 画像の雲形スタイル（追加する部分） */
+.cloud-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(0.8);
+  margin-top: 40px
+}
+

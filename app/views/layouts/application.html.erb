@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TweetApp</title>
+    <title>看護でつながる</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,11 +11,10 @@
   <body>
     <header>
       <div class="header-logo">
-        <!-- 以下の1行を削除し、指定されたHTMLを貼り付けてください -->
         <% if @current_user %>
-          <%= link_to("TweetApp", "/posts/index") %>
+          <%= link_to("看護でつながる", "/posts/index") %>
         <% else %>
-          <%= link_to("TweetApp", "/") %>
+          <%= link_to("看護でつながる", "/") %>
         <% end %>
       </div>
       <ul class="header-menus">
@@ -36,9 +35,6 @@
             <%= link_to("ログアウト", "/logout", {method: "post"}) %>
           </li>
         <% else %>
-          <li>
-            <%= link_to("TweetAppとは", "/about") %>
-          </li>
           <li>
             <%= link_to("新規登録", "/signup") %>
           </li>

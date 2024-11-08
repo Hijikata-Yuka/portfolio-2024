@@ -11348,3 +11348,637 @@ Processing by HomeController#top as HTML
 Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.3ms | Allocations: 3927)
 
 
+Started GET "/login" for ::1 at 2024-11-08 17:48:50 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login_form as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/login_form.erb within layouts/application
+  Rendered users/login_form.erb within layouts/application (Duration: 8.1ms | Allocations: 908)
+  Rendered layout layouts/application.html.erb (Duration: 470.0ms | Allocations: 38259)
+Completed 200 OK in 576ms (Views: 495.3ms | ActiveRecord: 0.7ms | Allocations: 48949)
+
+
+Started POST "/login" for ::1 at 2024-11-08 17:48:54 +0900
+Processing by UsersController#login as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"mint@316", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."password" = ? LIMIT ?[0m  [["email", "mint@316"], ["password", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `login'
+Redirected to http://localhost:3000/posts/index
+Completed 302 Found in 40ms (ActiveRecord: 1.6ms | Allocations: 7512)
+
+
+Started GET "/posts/index" for ::1 at 2024-11-08 17:48:54 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 3579)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 6683)
+Completed 200 OK in 63ms (Views: 40.7ms | ActiveRecord: 3.5ms | Allocations: 10153)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 17:49:11 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 972)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 3854)
+Completed 200 OK in 39ms (Views: 27.1ms | ActiveRecord: 0.7ms | Allocations: 4961)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 17:49:11 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/posts/index" for ::1 at 2024-11-08 17:49:46 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 885)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 3882)
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 0.7ms | Allocations: 4996)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 17:55:29 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 78.9ms | Allocations: 1525)
+  Rendered layout layouts/application.html.erb (Duration: 186.1ms | Allocations: 24889)
+Completed 200 OK in 337ms (Views: 230.9ms | ActiveRecord: 2.0ms | Allocations: 41196)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 17:55:29 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:00:27 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 789)
+  Rendered layout layouts/application.html.erb (Duration: 319.6ms | Allocations: 9959)
+Completed 200 OK in 333ms (Views: 320.6ms | ActiveRecord: 1.1ms | Allocations: 11086)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:00:27 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:02:57 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1073)
+  Rendered layout layouts/application.html.erb (Duration: 77.1ms | Allocations: 7944)
+Completed 200 OK in 103ms (Views: 90.4ms | ActiveRecord: 0.8ms | Allocations: 9533)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:02:57 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:05:24 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 740)
+  Rendered layout layouts/application.html.erb (Duration: 79.5ms | Allocations: 6697)
+Completed 200 OK in 90ms (Views: 82.0ms | ActiveRecord: 0.6ms | Allocations: 7712)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:05:25 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:07:15 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 740)
+  Rendered layout layouts/application.html.erb (Duration: 64.1ms | Allocations: 6621)
+Completed 200 OK in 73ms (Views: 65.2ms | ActiveRecord: 0.7ms | Allocations: 7573)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:07:15 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:07:35 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 740)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 3663)
+Completed 200 OK in 41ms (Views: 31.9ms | ActiveRecord: 1.0ms | Allocations: 4604)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:07:35 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/posts/index" for ::1 at 2024-11-08 18:07:38 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 3629)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 6717)
+Completed 200 OK in 53ms (Views: 37.3ms | ActiveRecord: 1.9ms | Allocations: 9480)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:07:40 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 741)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3618)
+Completed 200 OK in 27ms (Views: 18.1ms | ActiveRecord: 0.5ms | Allocations: 4651)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:07:40 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:09:57 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1096)
+  Rendered layout layouts/application.html.erb (Duration: 67.0ms | Allocations: 7909)
+Completed 200 OK in 91ms (Views: 80.2ms | ActiveRecord: 0.6ms | Allocations: 9489)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:09:58 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/6" for ::1 at 2024-11-08 18:10:13 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 3120)
+Completed 200 OK in 31ms (Views: 20.9ms | ActiveRecord: 0.4ms | Allocations: 4670)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:12:46 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 104.2ms | Allocations: 6710)
+Completed 200 OK in 115ms (Views: 105.9ms | ActiveRecord: 0.8ms | Allocations: 7650)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:12:46 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:13:14 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 70.1ms | Allocations: 6702)
+Completed 200 OK in 79ms (Views: 71.4ms | ActiveRecord: 0.5ms | Allocations: 7633)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:13:15 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:15:08 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1091)
+  Rendered layout layouts/application.html.erb (Duration: 65.5ms | Allocations: 7915)
+Completed 200 OK in 85ms (Views: 75.7ms | ActiveRecord: 0.6ms | Allocations: 9476)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:15:09 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/6" for ::1 at 2024-11-08 18:15:13 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 225)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 3109)
+Completed 200 OK in 28ms (Views: 17.5ms | ActiveRecord: 0.5ms | Allocations: 4632)
+
+
+Started GET "/users/3" for ::1 at 2024-11-08 18:15:33 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 2883)
+Completed 200 OK in 31ms (Views: 20.3ms | ActiveRecord: 1.0ms | Allocations: 4305)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:15:34 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/posts/index" for ::1 at 2024-11-08 18:15:43 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1150)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 4225)
+Completed 200 OK in 37ms (Views: 29.1ms | ActiveRecord: 0.4ms | Allocations: 5566)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:15:45 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 747)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3624)
+Completed 200 OK in 28ms (Views: 21.5ms | ActiveRecord: 0.5ms | Allocations: 4670)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:15:45 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:18:09 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 5452)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 5535)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.8ms | Allocations: 7099)
+
+
+  
+ActionView::Template::Error (undefined method `user_path' for #<ActionView::Base:0x0000000000f1e0>
+
+            '.freeze;@output_buffer.append=( link_to user.name, user_path(user), class: "user-name" );@output_buffer.safe_append='
+                                                                ^^^^^^^^^
+Did you mean?  users_index_path):
+     8:             <img src="<%= "/user_images/#{user.image_name}" %>" alt="<%= user.name %>">
+     9:           </div>
+    10:           <div class="user-right">
+    11:             <%= link_to user.name, user_path(user), class: "user-name" %>
+    12:           </div>
+    13:         </div>
+    14:       <% end %>
+  
+app/views/users/index.html.erb:11
+app/views/users/index.html.erb:5
+Started GET "/users/index" for ::1 at 2024-11-08 18:18:24 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1090)
+  Rendered layout layouts/application.html.erb (Duration: 67.1ms | Allocations: 7910)
+Completed 200 OK in 90ms (Views: 77.6ms | ActiveRecord: 1.0ms | Allocations: 9585)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:18:24 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/6" for ::1 at 2024-11-08 18:18:27 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 225)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 3118)
+Completed 200 OK in 28ms (Views: 18.2ms | ActiveRecord: 0.4ms | Allocations: 4619)
+
+
+Started GET "/posts/index" for ::1 at 2024-11-08 18:18:37 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1150)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 4225)
+Completed 200 OK in 39ms (Views: 30.8ms | ActiveRecord: 0.5ms | Allocations: 5576)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:18:42 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 747)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 3624)
+Completed 200 OK in 27ms (Views: 20.3ms | ActiveRecord: 0.6ms | Allocations: 4676)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:18:42 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:21:05 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 76.8ms | Allocations: 6776)
+Completed 200 OK in 86ms (Views: 78.1ms | ActiveRecord: 0.6ms | Allocations: 7725)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:21:06 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/posts/index" for ::1 at 2024-11-08 18:21:15 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 838)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 3739)
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 0.6ms | Allocations: 4723)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:21:16 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 3647)
+Completed 200 OK in 24ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 4596)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:21:17 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/6" for ::1 at 2024-11-08 18:21:19 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2928)
+Completed 200 OK in 25ms (Views: 15.9ms | ActiveRecord: 0.6ms | Allocations: 4359)
+
+
+Started GET "/users/3" for ::1 at 2024-11-08 18:21:22 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 2883)
+Completed 200 OK in 26ms (Views: 17.8ms | ActiveRecord: 0.5ms | Allocations: 4296)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:21:22 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:21:54 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 71.1ms | Allocations: 6620)
+Completed 200 OK in 82ms (Views: 72.6ms | ActiveRecord: 1.0ms | Allocations: 7570)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:21:54 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/index" for ::1 at 2024-11-08 18:22:33 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 75.3ms | Allocations: 6645)
+Completed 200 OK in 85ms (Views: 76.3ms | ActiveRecord: 0.9ms | Allocations: 7588)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:22:33 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/posts/index" for ::1 at 2024-11-08 18:22:36 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 838)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 3739)
+Completed 200 OK in 28ms (Views: 19.4ms | ActiveRecord: 0.6ms | Allocations: 4710)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:22:39 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 3623)
+Completed 200 OK in 27ms (Views: 20.2ms | ActiveRecord: 0.5ms | Allocations: 4557)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:22:39 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/6" for ::1 at 2024-11-08 18:22:44 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 2928)
+Completed 200 OK in 27ms (Views: 18.0ms | ActiveRecord: 0.7ms | Allocations: 4357)
+
+
+Started GET "/posts/index" for ::1 at 2024-11-08 18:22:47 +0900
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/posts/index.html.erb:4
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 838)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 3715)
+Completed 200 OK in 27ms (Views: 20.8ms | ActiveRecord: 0.5ms | Allocations: 4678)
+
+
+Started GET "/users/index" for ::1 at 2024-11-08 18:22:49 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 3623)
+Completed 200 OK in 26ms (Views: 18.6ms | ActiveRecord: 0.4ms | Allocations: 4564)
+
+
+Started GET "/user_images/" for ::1 at 2024-11-08 18:22:49 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/user_images"):
+  
+Started GET "/users/6" for ::1 at 2024-11-08 18:22:54 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `set_current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2928)
+Completed 200 OK in 23ms (Views: 16.2ms | ActiveRecord: 0.7ms | Allocations: 4338)
+
+

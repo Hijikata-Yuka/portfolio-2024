@@ -10,17 +10,19 @@ Text
     font-size: 18px;
     color: rgb(0, 0, 0);
   }
-#target {
-    background-color: #ffffff;
-    margin-bottom: 60px;
+
+  #target {
+    background-color: #ffffff; /* 背景色を白に */
+    margin-bottom: 80px;
     margin-left: 200px;
     margin-right: 200px;
     text-align: center;
     padding: 50px 20px;
-    margin-bottom: 80px;
+    border: 30px solid #f997cd; /* ピンクの縁取り */
+    border-radius: 50px; /* 角を丸くする */
+    box-sizing: border-box; /* ボーダーを含めたサイズ計算 */
   }
-
-
+  
   /*-------------------------------------------
 Mainvisual
 -------------------------------------------*/

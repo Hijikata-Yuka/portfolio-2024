@@ -1,10 +1,27 @@
 /* posts/index ================================ */
 .posts-index-item {
-    padding: 20px 30px;
-    background-color: white;
-    overflow: hidden;
-    box-shadow: 0 2px 6px #c1ced7;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(193, 206, 215, 0.4);
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(193, 206, 215, 0.5);
   }
+
+  .post-content {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: #007bff;
+    }
+  }
+}
   
   .post-left img {
     width: 50px;
